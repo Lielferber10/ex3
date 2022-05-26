@@ -62,7 +62,7 @@ bool testComparisonOperators()
 {
 	bool testResult = true;
 	HealthPoints healthPoints1 = HealthPoints(100); /* has 100 points out of 100 */
-	HealthPoints healthPoints2 = 100; /* has 100 points out of 100 */
+	//HealthPoints healthPoints2 = 100; /* has 100 points out of 100 */
 	bool comparisonResult;
 
 	comparisonResult = (healthPoints1 == healthPoints2); /* returns true */

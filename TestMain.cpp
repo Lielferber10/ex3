@@ -1,6 +1,5 @@
 
 #include <functional>
-
 #include "TestUtils.h"
 
 namespace HealthPointsTests {
@@ -22,11 +21,11 @@ std::function<bool()> testsList[] = {
 	HealthPointsTests::testArithmaticOperators,
 	HealthPointsTests::testComparisonOperators,
 	HealthPointsTests::testOutputOperator,
-
+/*
 	QueueTests::testQueueMethods,
 	QueueTests::testModuleFunctions,
 	QueueTests::testExceptions,
-	QueueTests::testConstQueue
+	QueueTests::testConstQueue*/
 };
 
 const int NUMBER_OF_TESTS = sizeof(testsList)/sizeof(std::function<bool()>);

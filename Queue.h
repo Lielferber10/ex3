@@ -4,13 +4,18 @@
 #include <stdio.h>
 #include <iostream>
 
-#define DEFAULT_MAX_HEALTH 100
-class HealthPoints
+class Queue
 {
+    struct Node
+    {
+        Node *previous;
+        Node *next;
+        int value;
+    }
     public:
     
-    HealthPoints(int maxHealthPoints = DEFAULT_MAX_HEALTH); //constractur
-    HealthPoints(const HealthPoints& healthPoints) = default; //copy constractur
+    explicit HealthPoints(int maxHealthPoints = 100); //constractur
+    HealthPoints(const HealthPoints& healthPoints); //copy constractur
     ~HealthPoints() = default; //destractur
     void operator=(const HealthPoints& healthPoints); //assignment operator
     void operator=(const int healthPointsValue); //assignment operator
@@ -22,14 +27,13 @@ class HealthPoints
 
     private:
 
-    int m_currentHealthPoints;
-    int m_maxHealthPoints;
+    Node first;
+    Node last;
 
     friend bool operator==(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //== operator
     friend bool operator>(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //> operator
     friend std::ostream& operator<<(std::ostream& os, const HealthPoints& healthPoints); //printing operator
-    friend int printing(const HealthPoints& hp1);
-    friend int printingmax(const HealthPoints& hp2);
+
 
 };
 HealthPoints& operator+(const HealthPoints& healthPoints, int healthPointsValue); //+ operator
@@ -39,3 +43,4 @@ bool operator!=(const HealthPoints& healthPoints1, const HealthPoints& healthPoi
 bool operator>=(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //>= operator
 bool operator<=(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //<= operator
 bool operator<(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //< operator
+void healthPointsBounds(int currentHealthPoints, int maxHealthPoints);
