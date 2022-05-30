@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <iostream>
 
-#define DEFAULT_MAX_HEALTH 100
+const int DEFAULT_MAX_HEALTH = 100;
+
 class HealthPoints
 {
     public:
@@ -25,17 +26,27 @@ class HealthPoints
     int m_currentHealthPoints;
     int m_maxHealthPoints;
 
-    friend bool operator==(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //== operator
-    friend bool operator>(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //> operator
+    friend bool operator>(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //>= operator
     friend std::ostream& operator<<(std::ostream& os, const HealthPoints& healthPoints); //printing operator
-    friend int printing(const HealthPoints& hp1);
-    friend int printingmax(const HealthPoints& hp2);
 
 };
-HealthPoints& operator+(const HealthPoints& healthPoints, int healthPointsValue); //+ operator
-HealthPoints& operator+(int healthPointsValue, const HealthPoints& healthPoints); //+ operator
+HealthPoints& operator+(const HealthPoints& healthPoints, const int healthPointsValue); //+ operator
+HealthPoints& operator+(const int healthPointsValue, const HealthPoints& healthPoints); //+ operator
 HealthPoints& operator-(const HealthPoints& healthPoints, const int healthPointsValue); //- operator
-bool operator!=(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //!= operator
 bool operator>=(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //>= operator
+bool operator>=(const HealthPoints& healthPoints1, const int healthPointsValue); //>= operator
+bool operator>=(const int healthPointsValue, const HealthPoints& healthPoints1); //>= operator
+bool operator==(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //== operator
+bool operator==(const HealthPoints& healthPoints1, const int healthPointsValue); //== operator
+bool operator==(const int healthPointsValue, const HealthPoints& healthPoints1); //== operator
+bool operator!=(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //!= operator
+bool operator!=(const HealthPoints& healthPoints1, const int healthPointsValue); //!= operator
+bool operator!=(const int healthPointsValue, const HealthPoints& healthPoints1); //!= operator
 bool operator<=(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //<= operator
+bool operator<=(const HealthPoints& healthPoints1, const int healthPointsValue); //<= operator
+bool operator<=(const int healthPointsValue, const HealthPoints& healthPoints1); //<= operator
+bool operator>(const HealthPoints& healthPoints1, const int healthPointsValue); //> operator
+bool operator>(const int healthPointsValue, const HealthPoints& healthPoints1); //> operator
 bool operator<(const HealthPoints& healthPoints1, const HealthPoints& healthPoints2); //< operator
+bool operator<(const HealthPoints& healthPoints1, const int healthPointsValue); //< operator
+bool operator<(const int healthPointsValue, const HealthPoints& healthPoints1); //< operator
